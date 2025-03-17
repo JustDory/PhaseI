@@ -1,40 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaf Shapes of St. Margaret's Bay</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
-            padding: 20px;
+            padding: 10px; /* Reduced padding for smaller screens */
             background-color: #f9de8b;
         }
         h1 {
             color: #2e7d32;
-            margin-bottom: 30px;
+            margin-bottom: 20px; /* Slightly reduced margin */
+            font-size: 1.8rem; /* Responsive font size */
         }
         .leaf-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
-            max-width: 1200px;
+            gap: 15px; /* Slightly reduced gap */
+            max-width: 100%; /* Full width on mobile */
             margin: 0 auto;
+            padding: 0 5px; /* Small padding for edges */
         }
         .leaf-item {
             cursor: pointer;
             transition: transform 0.2s;
+            width: 45%; /* Default for mobile: 2 items per row */
+            max-width: 200px; /* Cap the width for larger screens */
         }
         .leaf-item:hover {
             transform: scale(1.05);
         }
         .leaf-item img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
+            width: 100%; /* Full width of parent */
+            height: auto; /* Maintain aspect ratio */
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        /* Media query for larger screens */
+        @media (min-width: 600px) {
+            .leaf-item {
+                width: 30%; /* 3 items per row on tablets */
+            }
+        }
+        @media (min-width: 900px) {
+            .leaf-item {
+                width: 18%; /* 5 items per row on desktops */
+            }
+            h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -57,5 +76,6 @@
             <img src="striped-maple-leaf.jpg" alt="Stripped Maple">
         </div>
     </div>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'921fe2593a5c61a5',t:'MTc0MjI1MDA5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
