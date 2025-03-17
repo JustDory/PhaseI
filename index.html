@@ -60,22 +60,60 @@
 <body>
     <h1>Leaf Shapes of St. Margaret's Bay</h1>
     <div class="leaf-container">
-        <div class="leaf-item" onclick="window.location.href='leaf.html?type=yellow-birch'">
+        <div class="leaf-item" data-leaf="yellow-birch">
             <img src="yellow-birch-photo.jpg" alt="Coastal Yellow Birch">
         </div>
-        <div class="leaf-item" onclick="window.location.href='leaf.html?type=sugar-maple'">
+        <div class="leaf-item" data-leaf="sugar-maple">
             <img src="sugar-maple-photo.jpg" alt="Striped Maple Leaf">
         </div>
-        <div class="leaf-item" onclick="window.location.href='leaf.html?type=red-oak'">
+        <div class="leaf-item" data-leaf="red-oak">
             <img src="red-oak-photo.jpg" alt="Red Oak">
         </div>
-        <div class="leaf-item" onclick="window.location.href='leaf.html?type=white-pine'">
+        <div class="leaf-item" data-leaf="white-pine">
             <img src="white-pine-photo.jpg" alt="White Pine">
         </div>
-        <div class="leaf-item" onclick="window.location.href='leaf.html?type=stripped-maple-leaf'">
+        <div class="leaf-item" data-leaf="stripped-maple-leaf">
             <img src="striped-maple-leaf.jpg" alt="Stripped Maple">
         </div>
     </div>
+
+    <!-- Audio elements (hidden) -->
+    <audio id="yellow-birch-sound" src="yellow-birch-sound.mp3" preload="auto"></audio>
+    <audio id="sugar-maple-sound" src="sugar-maple-sound.mp3" preload="auto"></audio>
+    <audio id="red-oak-sound" src="red-oak-sound.mp3" preload="auto"></audio>
+    <audio id="white-pine-sound" src="white-pine-sound.mp3" preload="auto"></audio>
+    <audio id="stripped-maple-leaf-sound" src="stripped-maple-leaf-sound.mp3" preload="auto"></audio>
+
+    <script>
+        // Define sound mappings
+        const soundMap = {
+            'yellow-birch': document.getElementById('yellow-birch-sound'),
+            'sugar-maple': document.getElementById('sugar-maple-sound'),
+            'red-oak': document.getElementById('red-oak-sound'),
+            'white-pine': document.getElementById('white-pine-sound'),
+            'stripped-maple-leaf': document.getElementById('stripped-maple-leaf-sound')
+        };
+
+        // Add click event listeners to all leaf items
+        document.querySelectorAll('.leaf-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const leafType = this.getAttribute('data-leaf');
+                
+                // Play the corresponding sound
+                const sound = soundMap[leafType];
+                if (sound) {
+                    sound.currentTime = 0; // Reset sound to start
+                    sound.play();
+                }
+
+                // Navigate to the detail page after a slight delay to hear the sound
+                setTimeout(() => {
+                    window.location.href = `leaf.html?type=${leafType}`;
+                }, 200); // 200ms delay (adjust as needed)
+            });
+        });
+    </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'921fe2593a5c61a5',t:'MTc0MjI1MDA5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'921ff45ebac3635a',t:'MTc0MjI1MDgzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
