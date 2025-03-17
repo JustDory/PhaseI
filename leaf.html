@@ -61,12 +61,19 @@
     <img id="leafPhoto" class="leaf-photo" src="" alt="Leaf Photograph">
     <button class="play-again" onclick="window.location.href='index.html'">Play Again</button>
 
+    <!-- Audio elements (hidden) -->
+    <audio id="yellow-birch-sound" src="yellow-birch-sound.mp3" preload="auto"></audio>
+    <audio id="sugar-maple-sound" src="sugar-maple-sound.mp3" preload="auto"></audio>
+    <audio id="red-oak-sound" src="red-oak-sound.mp3" preload="auto"></audio>
+    <audio id="white-pine-sound" src="white-pine-sound.mp3" preload="auto"></audio>
+    <audio id="stripped-maple-leaf-sound" src="stripped-maple-leaf-sound.mp3" preload="auto"></audio>
+
     <script>
         // Get the leaf type from URL parameter
         const urlParams = new URLSearchParams(window.location.search);
         const leafType = urlParams.get('type');
 
-        // Define mappings for photos and leaf names
+        // Define mappings for photos, leaf names, and sounds
         const photos = {
             'yellow-birch': 'Coastal Yellow Birch.png',
             'sugar-maple': 'sugarMaple.jpg',
@@ -83,6 +90,14 @@
             'stripped-maple-leaf': 'Stripped Maple Leaf'
         };
 
+        const soundMap = {
+            'yellow-birch': document.getElementById('yellow-birch-sound'),
+            'sugar-maple': document.getElementById('sugar-maple-sound'),
+            'red-oak': document.getElementById('red-oak-sound'),
+            'white-pine': document.getElementById('white-pine-sound'),
+            'stripped-maple-leaf': document.getElementById('stripped-maple-leaf-sound')
+        };
+
         // Update the image source
         const photoSrc = photos[leafType] || 'default-photo.jpg';
         document.getElementById('leafPhoto').src = photoSrc;
@@ -91,6 +106,15 @@
         const leafName = leafNames[leafType] || 'Unknown Leaf';
         document.getElementById('leafTitle').textContent = leafName;
 
+        // Play the sound for the selected leaf
+        const sound = soundMap[leafType];
+        if (sound) {
+            sound.currentTime = 0; // Reset sound to start
+            sound.play().catch(error => {
+                console.log('Sound playback failed:', error);
+            });
+        }
+
         // Play Again button
         document.querySelector('.play-again').addEventListener('click', () => {
             console.log('Play Again clicked, redirecting to index.html');
@@ -98,5 +122,6 @@
         });
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'921fe2589a51678d',t:'MTc0MjI1MDA5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'922002069ae9619f',t:'MTc0MjI1MTM5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
