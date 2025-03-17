@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Leaf Detail - St. Margaret's Bay</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 40px;
+            background-color: #d0ebff;
+        }
+        h1 {
+            color: #2e7d32;
+            margin-bottom: 30px;
+        }
+        .leaf-photo {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            margin: 20px auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .play-again {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .play-again:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="leafTitle">Leaf Shapes of St. Margaret's Bay</h1>
+    <img id="leafPhoto" class="leaf-photo" src="" alt="Leaf Photograph">
+    <button class="play-again" onclick="window.location.href='index.html'">Play Again</button>
+
+    <script>
+        // Get the leaf type from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const leafType = urlParams.get('type');
+
+        // Define mappings for photos and leaf names
+        const photos = {
+            'yellow-birch': 'yellow-birch-photo.jpg',
+            'sugar-maple': 'sugar-maple-photo.jpg',
+            'red-oak': 'red-oak-photo.jpg',
+            'white-pine': 'white-pine-photo.jpg',
+            'balsam-fir': 'balsam-fir-photo.jpg'
+        };
+
+        const leafNames = {
+            'yellow-birch': 'Coastal Yellow Birch',
+            'sugar-maple': 'Sugar Maple',
+            'red-oak': 'Red Oak',
+            'white-pine': 'White Pine',
+            'balsam-fir': 'Balsam Fir'
+        };
+
+        // Update the image source
+        const photoSrc = photos[leafType] || 'default-photo.jpg';
+        document.getElementById('leafPhoto').src = photoSrc;
+
+        // Update the title with the leaf name
+        const leafName = leafNames[leafType] || 'Unknown Leaf';
+        document.getElementById('leafTitle').textContent = leafName;
+
+        // Play Again button
+        document.querySelector('.play-again').addEventListener('click', () => {
+            console.log('Play Again clicked, redirecting to index.html');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

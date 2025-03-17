@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Leaf Shapes of St. Margaret's Bay</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #d0ebff;
+        }
+        h1 {
+            color: #2e7d32;
+            margin-bottom: 30px;
+        }
+        .leaf-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .leaf-item {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .leaf-item:hover {
+            transform: scale(1.05);
+        }
+        .leaf-item img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Leaf Shapes of St. Margaret's Bay</h1>
+    <div class="leaf-container">
+        <div class="leaf-item" onclick="window.location.href='leaf.html?type=yellow-birch'">
+            <img src="yellow-birch-photo.jpg" alt="Coastal Yellow Birch">
+        </div>
+        <div class="leaf-item" onclick="window.location.href='leaf.html?type=sugar-maple'">
+            <img src="sugar-maple-photo.jpg" alt="Sugar Maple">
+        </div>
+        <div class="leaf-item" onclick="window.location.href='leaf.html?type=red-oak'">
+            <img src="red-oak-photo.jpg" alt="Red Oak">
+        </div>
+        <div class="leaf-item" onclick="window.location.href='leaf.html?type=white-pine'">
+            <img src="white-pine-photo.jpg" alt="White Pine">
+        </div>
+        <div class="leaf-item" onclick="window.location.href='leaf.html?type=balsam-fir'">
+            <img src="balsam-fir-photo.jpg" alt="Balsam Fir">
+        </div>
+    </div>
+</body>
+</html>
