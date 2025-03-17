@@ -1,40 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaf Detail - St. Margaret's Bay</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
-            padding: 40px;
+            padding: 20px; /* Reduced padding for mobile */
             background-color: #f9de8b;
         }
         h1 {
             color: #2e7d32;
-            margin-bottom: 30px;
+            margin-bottom: 20px; /* Reduced margin */
+            font-size: 1.8rem; /* Responsive font size */
         }
         .leaf-photo {
-            width: 400px;
-            height: 400px;
-            object-fit: cover;
-            margin: 20px auto;
+            width: 100%; /* Full width on mobile */
+            max-width: 400px; /* Cap for larger screens */
+            height: auto; /* Maintain aspect ratio */
+            margin: 15px auto;
             display: block;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         .play-again {
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 1rem; /* Responsive font size */
             background-color: #4caf50;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.2s;
+            width: 100%; /* Full width on mobile */
+            max-width: 200px; /* Cap for larger screens */
+            margin-top: 20px;
         }
         .play-again:hover {
             background-color: #45a049;
+        }
+        /* Media query for larger screens */
+        @media (min-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .leaf-photo {
+                width: 400px; /* Fixed size for larger screens */
+            }
+            .play-again {
+                width: auto; /* Button returns to natural width */
+            }
         }
     </style>
 </head>
@@ -79,5 +97,6 @@
             window.location.href = 'index.html';
         });
     </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'921fe2589a51678d',t:'MTc0MjI1MDA5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
